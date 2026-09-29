@@ -12,17 +12,6 @@ module uart_dp_top #(parameter DATA_BW=8)
     bit rx_wr_en, tx_wr_en;
 
 
-    fifo #(.WIDTH(DATA_BW), .DEPTH(16)) rx_fifo (
-        .clk     (i_clk),
-        .rst_n   (i_rstn),
-        .wr_en   (rx_wr_en),
-        .wr_data (i_uart_rx),
-        .rd_en   (rx_fifo_rd_en),
-        .rd_data (rx_output),
-        .full    (rx_fifo_full),
-        .empty   (rx_fifo_empty)
-    );
-
     fifo #(.WIDTH(DATA_BW), .DEPTH(16)) tx_fifo (
         .clk     (i_clk),
         .rst_n   (i_rstn),
